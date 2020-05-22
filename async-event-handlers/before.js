@@ -1,5 +1,5 @@
 const got = require('got')
-const { createServer, request } = require('http')
+const { createServer } = require('http')
 const { createReadStream } = require('fs')
 const { join } = require('path')
 const { format } = require('util')
@@ -15,35 +15,7 @@ setInterval(() => {
 
 process.on('unhandledRejection', () => unhandledRejections++)
 
-function cbHandler(req, res, cb) {
-  open(join(__dirname, 'package.json'), (err, fd) => {
-    if (err) {
-      return cb(err)
-    }
-
-    read(fd, Buffer.alloc(100), 0, 100, 0, async (err, len, buffer) => {
-      if (err) {
-        return cb(err)
-      }
-
-      openedFds++
-
-      const key = JSON.parse(buffer.slice(0, len).toString('utf-8')).key
-      const res = await got(`http://localhost:3001?key=${key}`, { retry: 0 })
-
-      close(fd, err => {
-        if (err) {
-          return cb(err)
-        }
-
-        openedFds--
-        cb(null, res.body)
-      })
-    })
-  })
-}
-
-function streamHandler(req, res, cb) {
+function handler(req, res, cb) {
   const stream = createReadStream(join(__dirname, '../package.json'))
   openedFds++
   let data = ''
@@ -75,8 +47,6 @@ const apiServer = createServer((req, res) => {
 })
 
 const server = createServer((req, res) => {
-  const handler = streamHandler // Math.random() < 0.5 ? cbHandler : streamHandler
-
   handler(req, res, (err, body) => {
     if (err) {
       res.writeHead(500, { 'Content-Type': 'text/plain' })

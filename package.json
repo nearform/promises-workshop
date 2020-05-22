@@ -1,7 +1,8 @@
 {
   "devDependencies": {
     "got": "^11.1.4",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "p-map": "^4.0.0"
   },
   "key": 123
 }

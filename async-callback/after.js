@@ -1,5 +1,5 @@
 const got = require('got')
-const { createServer, request } = require('http')
+const { createServer } = require('http')
 const { open, close, read } = require('fs').promises
 const { join } = require('path')
 const { format } = require('util')
