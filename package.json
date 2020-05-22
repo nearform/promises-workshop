@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "got": "^11.1.4",
+    "nodemon": "^2.0.4"
+  },
+  "key": 123
+}
