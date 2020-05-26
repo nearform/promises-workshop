@@ -7,7 +7,7 @@ const { format } = require('util')
 let unhandledRejections = 0
 let openedFds = 0
 
-setInterval(() => {
+const interval = setInterval(() => {
   console.log(
     format('MEMORY: %d, UNHANDLED REJECTIONS: %d, FD: %d', process.memoryUsage().rss, unhandledRejections, openedFds)
   )
@@ -21,7 +21,7 @@ function handler(req, res, cb) {
     .then(file => {
       fh = file
       openedFds++
-      return fh.read(Buffer.alloc(100), 0, 100, 0)
+      return fh.read(Buffer.alloc(10000), 0, 10000, 0)
     })
     .then(({ buffer, bytesRead: len }) => {
       const key = JSON.parse(buffer.slice(0, len).toString('utf-8')).key
@@ -52,6 +52,15 @@ const apiServer = createServer((req, res) => {
 
 const server = createServer((req, res) => {
   handler(req, res, (err, body) => {
+    if (req.method === 'DELETE') {
+      res.writeHead(202, { 'Content-Type': 'text/plain' })
+      res.end()
+      server.close()
+      apiServer.close()
+      clearInterval(interval)
+      return
+    }
+
     if (err) {
       res.writeHead(500, { 'Content-Type': 'text/plain' })
       res.write(err.message)

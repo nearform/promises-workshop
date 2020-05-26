@@ -4,29 +4,20 @@ const { createReadStream } = require('fs')
 const { join } = require('path')
 const { format } = require('util')
 
-let running = 0
-
-setInterval(() => {
-  console.log(format('RUNNING: %d', running))
-}, 2000)
-
 function handler(req, res, cb) {
   let data = ''
 
   async function fetch(i) {
-    running++
     data += `CALL[${i}]\n`
     const res = await got(`http://localhost:3001`, { retry: 0 })
 
     data += `RES[${i}] ${res.body}\n`
-    running--
   }
 
   Promise.all(Array.from(Array(100), (_, i) => fetch(i)))
     .then(() => {
       cb(null, data)
     })
-    .catch(cb)
 }
 
 const apiServer = createServer((req, res) => {
@@ -37,10 +28,11 @@ const apiServer = createServer((req, res) => {
 
 const server = createServer((req, res) => {
   handler(req, res, (err, body) => {
-    if (err) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' })
-      res.write(err.message)
+    if(req.method === 'DELETE') {
+      res.writeHead(202, { 'Content-Type': 'text/plain' })
       res.end()
+      server.close()
+      apiServer.close()      
       return
     }
 

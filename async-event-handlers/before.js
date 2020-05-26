@@ -7,7 +7,7 @@ const { format } = require('util')
 let unhandledRejections = 0
 let openedFds = 0
 
-setInterval(() => {
+const interval = setInterval(() => {
   console.log(
     format('MEMORY: %d, UNHANDLED REJECTIONS: %d, FD: %d', process.memoryUsage().rss, unhandledRejections, openedFds)
   )
@@ -48,6 +48,15 @@ const apiServer = createServer((req, res) => {
 
 const server = createServer((req, res) => {
   handler(req, res, (err, body) => {
+    if (req.method === 'DELETE') {
+      res.writeHead(202, { 'Content-Type': 'text/plain' })
+      res.end()
+      server.close()
+      apiServer.close()
+      clearInterval(interval)
+      return
+    }
+
     if (err) {
       res.writeHead(500, { 'Content-Type': 'text/plain' })
       res.write(err.message)

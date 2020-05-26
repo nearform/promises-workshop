@@ -1,8 +1,47 @@
 {
+  "name": "promises-workshop",
+  "version": "0.1.0",
+  "description": "Broken Promises Workshop Exercizes",
+  "author": "NearForm Ltd",
+  "homepage": "https://github.com/nearform/promises-workshop",
+  "contributors": [
+    {
+      "name": "Paolo Insogna",
+      "url": "https://github.com/ShogunPanda"
+    }
+  ],
+  "license": "Apache-2.0",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "keywords": [
+    "broken", "promises", "workshop"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nearform/promises-workshop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nearform/promises-workshop/issues"
+  },
   "devDependencies": {
+    "autocannon": "^4.6.0",
+    "eslint": "^7.1.0",
+    "eslint-config-standard": "14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "got": "^11.1.4",
     "nodemon": "^2.0.4",
-    "p-map": "^4.0.0"
+    "p-map": "^4.0.0",
+    "tap": "^14.10.7"
+  },
+  "scripts": {
+    "lint": "eslint src/**/*.js test/**/*.js"
   },
   "key": 123
 }
