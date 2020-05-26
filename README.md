@@ -1,4 +1,4 @@
-# Broken Promises EXERCIZEs
+# Broken Promises Exercizes
 
 This workshops shows some of the quirks illustrated by James Snell in its [Broken Promises](https://www.youtube.com/watch?v=XV-u_Ow47s0) talk.
 
