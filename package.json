@@ -18,7 +18,9 @@
     }
   ],
   "keywords": [
-    "broken", "promises", "workshop"
+    "broken",
+    "promises",
+    "workshop"
   ],
   "repository": {
     "type": "git",
@@ -28,7 +30,9 @@
     "url": "https://github.com/nearform/promises-workshop/issues"
   },
   "devDependencies": {
+    "abort-controller": "^3.0.0",
     "autocannon": "^4.6.0",
+    "csvtojson": "^2.0.10",
     "eslint": "^7.1.0",
     "eslint-config-standard": "14.1.1",
     "eslint-plugin-import": "^2.20.2",
@@ -37,11 +41,10 @@
     "eslint-plugin-standard": "^4.0.1",
     "got": "^11.1.4",
     "nodemon": "^2.0.4",
+    "notare": "^1.0.8",
     "p-map": "^4.0.0",
+    "piscina": "^1.6.2",
     "tap": "^14.10.7"
-  },
-  "scripts": {
-    "lint": "eslint src/**/*.js test/**/*.js"
   },
   "key": 123
 }

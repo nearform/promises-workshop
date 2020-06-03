@@ -1,10 +1,11 @@
+'use strict';
 // The challenge: This code prints a message to the console. Without
 // running the code, can you determine what it prints?
 //
 // The key here is reason about how Node.js and V8 use scheduling
 // to detemine when JavaScript will execute.
 
-const { promisify } = require('util');
+const { promisify } = require('util')
 const {
   Worker,
   isMainThread,
