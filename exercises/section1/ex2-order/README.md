@@ -1,6 +1,6 @@
 # Event loop ordering
 
-Run `first.js` then create an ipothesis of the priority
+Run `first.js` then create an hypothesis of the priority
 of various ways to defer to the "future".
 
 Run `second.js`. What can you say about your hypothesis?
