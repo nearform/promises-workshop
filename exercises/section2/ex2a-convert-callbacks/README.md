@@ -12,4 +12,7 @@ Your task in this exercise is to convert the complete test
 to a version that uses Promises to generate an identical
 list.
 
+To check your work, run `node test after.js` where `after.js`
+is the name of you converted file.
+
 You will have 30 minutes to complete the exercise.

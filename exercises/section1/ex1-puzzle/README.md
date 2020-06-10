@@ -29,3 +29,8 @@ with the Node.js event loop.
    event loop?
 
 3. Is there anything in the puzzle that completely surprised you?
+
+4. Bonus Question: `puzzle.mjs` includes a ES6 Module version of
+   the puzzle. Without running the code, do you think it will
+   produce the same result? If not, why not? How will it be
+   different?

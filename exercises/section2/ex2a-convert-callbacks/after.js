@@ -31,6 +31,7 @@ async function scanDir(path, out, depth) {
   }
 }
 
+// Question to consider: Why aren't we using an async function here?
 const server = createServer((request, response) => {
   scanDir(resolve('../..'), response, 0)
     .then(() => response.end())
@@ -45,7 +46,6 @@ server.listen(3001, () => {
 
   get(`http://localhost:${port}`, (response) => {
     response.setEncoding('utf8')
-    //response.resume()
     response.on('data', console.log)
     response.on('end', () => server.close())
   })

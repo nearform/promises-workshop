@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const { createServer, get } = require('http')
 const { opendir, createReadStream } = require('fs')
@@ -6,6 +6,10 @@ const { resolve } = require('path')
 const { pipeline } = require('stream')
 const { createHash } = require('crypto')
 
+// Generate a sha-256 hash of the file contents by piping
+// the file data into the Hash object. Once all of the
+// data has been hashed, grab only the first 10 characters
+// from the hex-encoded hash.
 function hashFile(path, cb) {
   const hash = createHash('sha256')
   pipeline(
@@ -20,6 +24,9 @@ function hashFile(path, cb) {
     })
 }
 
+// Uses the opendir API to iterate over a directory structure
+// recursively. The directory structure is written to out.
+// When done, the callback is invoked.
 function scanDir(path, out, depth, callback) {
   opendir(path, (err, dir) => {
     if (err) {
@@ -78,7 +85,6 @@ server.listen(3001, () => {
 
   get(`http://localhost:${port}`, (response) => {
     response.setEncoding('utf8')
-    //response.resume()
     response.on('data', console.log)
     response.on('end', () => server.close())
   })
