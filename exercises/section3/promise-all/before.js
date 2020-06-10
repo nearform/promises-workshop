@@ -32,7 +32,7 @@ const server = createServer((req, res) => {
       res.writeHead(202, { 'Content-Type': 'text/plain' })
       res.end()
       server.close()
-      apiServer.close()      
+      apiServer.close()
       return
     }
 
