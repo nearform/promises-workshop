@@ -17,8 +17,9 @@ const server = createServer((request, response) => {
     .then(() => sleep(1000))
     .then(() => response.end(hash.digest().toString('hex').substr(0,10)))
     .catch((err) => {
-      response.destroy(err)
-      console.log(err.message)
+      console.error(err.message)
+      ressponse.statusCode = 500
+      response.end(err.message)
     })
 });
 
