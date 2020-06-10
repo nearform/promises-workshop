@@ -37,7 +37,8 @@ const server = createServer((request, response) => {
     .then(() => response.end())
     .catch((err) => {
       console.error(err)
-      process.exit(1)
+      res.statusCode = 500
+      res.end(err.message)
     })
 })
 

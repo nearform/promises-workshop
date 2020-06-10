@@ -9,8 +9,8 @@ hash of the file contents is calculated and included in the
 output.
 
 Your task in this exercise is to convert the complete test
-to a version that uses Promises to generate an identical
-list.
+to a version that uses Promises and async/await to generate
+an identical list.
 
 To check your work, run `node test after.js` where `after.js`
 is the name of you converted file.
