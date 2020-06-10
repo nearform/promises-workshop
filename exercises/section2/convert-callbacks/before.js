@@ -46,14 +46,17 @@ function scanDir(path, out, depth, callback) {
         callback()
         return
       }
-      if (ent.name.startsWith('.'))
+      if (ent.name.startsWith('.')) {
         return next()
+      }
       const icon = ent.isDirectory() ? '+' : '-'
       const entityPath = resolve(dir.path, ent.name)
 
       if (ent.isFile()) {
         hashFile(entityPath, (err, hash) => {
-          if (err) throw err
+          if (err) {
+            throw err
+          }
           out.write(`${' '.repeat(depth)}${icon} ${ent.name} (${hash})`)
           next()
         })
@@ -80,7 +83,7 @@ const server = createServer((request, response) => {
   })
 })
 
-server.listen(3001, () => {
+server.listen(3000, () => {
   const port = server.address().port
 
   get(`http://localhost:${port}`, (response) => {

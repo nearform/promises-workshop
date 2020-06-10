@@ -23,8 +23,9 @@ async function scanDir(path, out, depth) {
       continue
     const entityPath = resolve(dir.path, ent.name)
     const icon = ent.isDirectory() ? '+' : '-'
-    const hash = ent.isFile() ?
-      ` (${await hashFile(entityPath)})` : '';
+    const hash = ent.isFile()
+      ? ` (${await hashFile(entityPath)})`
+      : ''
     out.write(`${' '.repeat(depth)}${icon} ${ent.name}${hash}`)
     if (ent.isDirectory())
       await scanDir(entityPath, out, depth + 2)
@@ -37,12 +38,12 @@ const server = createServer((request, response) => {
     .then(() => response.end())
     .catch((err) => {
       console.error(err)
-      res.statusCode = 500
-      res.end(err.message)
+      response.statusCode = 500
+      response.end(err.message)
     })
 })
 
-server.listen(3001, () => {
+server.listen(3000, () => {
   const port = server.address().port
 
   get(`http://localhost:${port}`, (response) => {

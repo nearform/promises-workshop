@@ -10,9 +10,3 @@ Run `first.mjs`. What has changed? Can you explain it further?
 ## Hint
 
 Take a look at https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
-
-## Bonus
-
-Create a copy of `first.js` and rename it to `first.mjs` to convert it
-into an ES6 Module. Will it produce the same results as `first.js`?
-If not, why not?
