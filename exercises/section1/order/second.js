@@ -2,6 +2,21 @@
 const { readFile } = require('fs')
 
 readFile(__filename, () => {
+  new Promise(function (resolve, reject) {
+    console.log('new promise')
+    resolve()
+  }).then(() => {
+    console.log('then 1')
+  })
+
+  async function foo () {
+    console.log('async function')
+  }
+
+  foo().then(() => {
+    console.log('then 2')
+  })
+
   setImmediate(() => {
     console.log('immediate 1')
   })
