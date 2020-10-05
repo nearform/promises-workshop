@@ -10,7 +10,9 @@ const pipeline = promisify(_pipeline)
 
 const sleep = promisify(setTimeout)
 
-const server = createServer((request, response) => {
+const server = createServer()
+
+server.on('request', (request, response) => {
   hash(request, response)
     .catch((err) => {
       console.error(err.message)
