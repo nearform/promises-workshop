@@ -14,7 +14,7 @@ const server = createServer((request, response) => {
   hash(request, response)
     .catch((err) => {
       console.error(err.message)
-      ressponse.statusCode = 500
+      response.statusCode = 500
       response.end(err.message)
     })
 });

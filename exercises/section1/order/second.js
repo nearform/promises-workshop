@@ -2,7 +2,7 @@
 const { readFile } = require('fs')
 
 readFile(__filename, () => {
-  new Promise(function (resolve, reject) {
+  new Promise(function (resolve) {
     console.log('new promise')
     resolve()
   }).then(() => {

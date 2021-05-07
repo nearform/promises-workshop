@@ -16,7 +16,7 @@ async function timeout(n) {
   throw new Error('Timed out!')
 }
 
-;(async () => {
+(async () => {
   try {
     await Promise.race([getData(), timeout(2000)])
   } catch (err) {

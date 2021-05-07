@@ -12,7 +12,7 @@ async function handle (req, res) {
 }
 
 http.createServer(function (req, res) {
-  handle(req, res).catch((err) => {
+  handle(req, res).catch(() => {
     res.statusCode = 500
     res.end('kaboom')
   })
