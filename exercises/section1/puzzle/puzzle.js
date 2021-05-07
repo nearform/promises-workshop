@@ -1,3 +1,5 @@
+/* eslint-disable no-inner-declarations, no-unsafe-finally */
+
 'use strict';
 // The challenge: This code prints a message to the console. Without
 // running the code, can you determine what it prints?

@@ -7,7 +7,7 @@ const { on } = require('events');
   const server = createServer()
   server.listen(8000)
 
-  for await (const [request, response] of on(server, 'request')) {
+  for await (const [, response] of on(server, 'request')) {
     response.end('hello world')
   }
 })()
