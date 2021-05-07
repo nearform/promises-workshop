@@ -15,7 +15,7 @@ const sleep = promisify(setTimeout)
   const server = createServer()
   server.listen(8000)
 
-  for await (const [request, response] of on(server, 'request')) {
+  for await (const [, response] of on(server, 'request')) {
     const file = createReadStream(__filename)
     const hash = createHash('sha256')
     pipeline(file, hash)

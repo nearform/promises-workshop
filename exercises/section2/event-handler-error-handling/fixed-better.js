@@ -9,7 +9,7 @@ foo.on('something', async () => {
   functionThatDoesNotExist()
 })
 
-foo.on('error', (err) => {
+foo.on('error', () => {
   throw new Error('boom')
 })
 

@@ -16,7 +16,7 @@ function getData(abortController) {
   })
 }
 
-;(async () => {
+(async () => {
   try {
     const ac = new AbortController()
     setTimeout(() => ac.abort(), 2000)

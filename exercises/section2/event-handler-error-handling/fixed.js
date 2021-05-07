@@ -16,7 +16,7 @@ foo.on('something', async () => {
   }
 })
 
-foo.on('error', (err) => {
+foo.on('error', () => {
   throw new Error('boom')
 })
 

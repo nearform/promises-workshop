@@ -1,7 +1,8 @@
+/* eslint no-unused-vars: 0 */
+
 'use strict'
 
 const { createServer } = require('http')
-const { join } = require('path')
 const { promisify } = require('util')
 const pMap = require('p-map')
 const sleep = promisify(setTimeout)
