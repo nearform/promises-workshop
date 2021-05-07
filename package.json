@@ -46,7 +46,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "got": "^11.1.4",
     "nodemon": "^2.0.4",
-    "notare": "^1.0.8",
+    "notare": "^2.2.0",
     "p-map": "^4.0.0",
     "piscina": "^1.6.2",
     "tap": "^14.10.7"
