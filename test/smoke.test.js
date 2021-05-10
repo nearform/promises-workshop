@@ -8,7 +8,6 @@ function runScript(path) {
 t.test('exercises/section1/order/first.js', async t => runScript(t.name));
 t.test('exercises/section1/order/second.js', async t => runScript(t.name));
 
-t.test('exercises/section2/caching-promises/broken.js', async t => runScript(t.name));
 t.test('exercises/section2/caching-promises/fixed.js', async t => runScript(t.name));
 
 t.test('exercises/section2/event-handler-error-handling/better.js', async t => runScript(t.name));
