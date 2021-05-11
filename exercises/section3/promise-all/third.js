@@ -4,7 +4,7 @@
 
 const { createServer } = require('http')
 const { promisify } = require('util')
-const pMap = require('p-map')
+
 const sleep = promisify(setTimeout)
 
 async function handler() {
@@ -22,6 +22,7 @@ async function handler() {
 
   const items = Array.from(Array(100))
 
+  const pMap = await import('p-map')
   await pMap(items, (_, i) => fetch(i), { concurrency: 16 })
 
   return data
