@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "abort-controller": "^3.0.0",
-    "autocannon": "^7.3.0",
+    "autocannon": "^7.4.0",
     "babel-eslint": "^10.1.0",
     "csvtojson": "^2.0.10",
     "eslint": "^7.30.0",
