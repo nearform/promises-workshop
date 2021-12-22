@@ -1,15 +1,16 @@
 {
   "extends": [
-    "eslint:recommended"
+    "standard"
   ],
   "env": {
     "node": true,
     "es6": true,
     "worker": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 2021
+    "ecmaVersion": 2021,
+    "requireConfigFile": false,
   },
   "rules": {},
   "globals": {
