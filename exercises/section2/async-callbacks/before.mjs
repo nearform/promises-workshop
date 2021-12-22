@@ -1,5 +1,6 @@
 import { createServer } from 'http'
 import { open, close, read } from 'fs'
+import { fileURLToPath } from 'url'
 
 let openFiles = 0
 let unhandledRejections = 0
@@ -16,7 +17,7 @@ function maybeThrow () {
 }
 
 function handler (callback) {
-  open(__filename, 'r', async (err, fd) => {
+  open(fileURLToPath(import.meta.url), 'r', async (err, fd) => {
     if (err) {
       return callback(err)
     }

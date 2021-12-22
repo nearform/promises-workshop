@@ -3,6 +3,7 @@ import { pipeline as _pipeline } from 'stream'
 import { promisify } from 'util'
 import { createHash } from 'crypto'
 import { createReadStream } from 'fs'
+import { fileURLToPath } from 'url'
 
 const pipeline = promisify(_pipeline)
 const sleep = promisify(setTimeout)
@@ -17,7 +18,7 @@ const server = createServer((request, response) => {
 })
 
 async function hash (request, response) {
-  const file = createReadStream(__filename)
+  const file = createReadStream(fileURLToPath(import.meta.url))
   const hash = createHash('sha256')
   await pipeline(file, hash)
   await sleep(1000)

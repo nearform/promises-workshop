@@ -2,12 +2,10 @@ import http from 'http'
 import { readFile } from 'fs/promises'
 import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url)
-
 async function handle (req, res) {
-  const a = await readFile(__filename)
-  const b = await readFile(__filename)
-  const c = await readFile(__filename)
+  const a = await readFile(fileURLToPath(import.meta.url))
+  const b = await readFile(fileURLToPath(import.meta.url))
+  const c = await readFile(fileURLToPath(import.meta.url))
 
   res.end(Buffer.concat([a, b, c]))
 }

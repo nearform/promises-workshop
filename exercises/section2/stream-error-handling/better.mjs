@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { fileURLToPath } from 'url'
 
 async function countStream (file) {
   let n = 0
@@ -20,6 +21,6 @@ async function run (file) {
 export default run
 
 if (!process.argv.includes('test')) {
-  const file = process.argv[2] || __filename
+  const file = process.argv[2] || fileURLToPath(import.meta.url)
   run(file)
 }

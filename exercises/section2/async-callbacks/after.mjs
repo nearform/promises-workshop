@@ -1,5 +1,6 @@
 import { createServer } from 'http'
 import { open } from 'fs/promises'
+import { fileURLToPath } from 'url'
 
 let openFiles = 0
 let unhandledRejections = 0
@@ -16,7 +17,7 @@ function maybeThrow () {
 }
 
 async function handler () {
-  const file = await open(__filename, 'r')
+  const file = await open(fileURLToPath(import.meta.url), 'r')
   openFiles++
   try {
     const {
