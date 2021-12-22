@@ -1,5 +1,5 @@
-const http = require('http')
-const fs = require('fs')
+import http from 'http'
+import fs from 'fs'
 
 http.createServer(function f1 (req, res) {
   fs.readFile(__filename, function f2 (err, buf1) {

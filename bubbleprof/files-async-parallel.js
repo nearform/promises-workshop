@@ -1,7 +1,5 @@
-const http = require('http')
-const fs = require('fs')
-const { promisify } = require('util')
-const readFile = promisify(fs.readFile)
+import http from 'http'
+import { readFile } from 'fs/promises'
 
 async function handle (req, res) {
   res.end(Buffer.concat(await Promise.all([

@@ -1,6 +1,4 @@
-'use strict'
-
-const fs = require('fs')
+import fs from 'fs'
 
 function countStream (file) {
   return new Promise((resolve, reject) => {
@@ -19,7 +17,7 @@ function countStream (file) {
 
 function run (file) {
   const p = countStream(file)
-  
+
   p.then((n) => console.log(`${file} has ${n} bytes`))
   p.catch((err) => console.log('caught error', err))
 }

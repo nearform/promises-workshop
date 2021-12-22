@@ -1,15 +1,14 @@
 /* eslint no-unused-vars: 0 */
 
-'use strict'
+import { createServer } from 'http'
+import { promisify } from 'util'
 
-const { createServer } = require('http')
-const { promisify } = require('util')
 const sleep = promisify(setTimeout)
 
-async function handler() {
+async function handler () {
   let data = ''
 
-  async function fetch(i) {
+  async function fetch (i) {
     data += `CALL[${i}]\n`
 
     const val = Buffer.allocUnsafe(i * 1024 * 1024)

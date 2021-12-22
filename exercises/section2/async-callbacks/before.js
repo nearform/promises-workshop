@@ -1,5 +1,5 @@
-const { createServer } = require('http')
-const { open, close, read } = require('fs')
+import { createServer } from 'http'
+import { open, close, read } from 'fs'
 
 let openFiles = 0
 let unhandledRejections = 0
@@ -11,12 +11,11 @@ setInterval(() => {
               `Unhandled Rejections: ${unhandledRejections}`)
 }, 1000).unref()
 
-function maybeThrow() {
-  if (Math.floor(Math.random() * 100) % 2)
-    throw new Error('boom')
+function maybeThrow () {
+  if (Math.floor(Math.random() * 100) % 2) { throw new Error('boom') }
 }
 
-function handler(callback) {
+function handler (callback) {
   open(__filename, 'r', async (err, fd) => {
     if (err) {
       return callback(err)

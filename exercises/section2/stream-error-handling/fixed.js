@@ -1,6 +1,4 @@
-'use strict'
-
-const fs = require('fs')
+import fs from 'fs'
 
 function countStream (file) {
   return new Promise((resolve, reject) => {

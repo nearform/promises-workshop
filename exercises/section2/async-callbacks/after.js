@@ -1,5 +1,5 @@
-const { createServer } = require('http')
-const { open } = require('fs').promises
+import { createServer } from 'http'
+import { open } from 'fs/promises'
 
 let openFiles = 0
 let unhandledRejections = 0
@@ -11,12 +11,11 @@ setInterval(() => {
               `Unhandled Rejections: ${unhandledRejections}`)
 }, 1000).unref()
 
-function maybeThrow() {
-  if (Math.floor(Math.random() * 100) % 2)
-    throw new Error('boom')
+function maybeThrow () {
+  if (Math.floor(Math.random() * 100) % 2) { throw new Error('boom') }
 }
 
-async function handler() {
+async function handler () {
   const file = await open(__filename, 'r')
   openFiles++
   try {

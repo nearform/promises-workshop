@@ -1,13 +1,13 @@
-'use strict';
+import { createServer } from 'http'
+import { on } from 'events'
 
-const { createServer } = require('http');
-const { on } = require('events');
+const server = createServer()
+server.listen(8000)
 
-(async () => {
-  const server = createServer()
-  server.listen(8000)
-
+async function main () {
   for await (const [, response] of on(server, 'request')) {
     response.end('hello world')
   }
-})()
+}
+
+main()

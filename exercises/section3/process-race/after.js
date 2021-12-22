@@ -1,8 +1,6 @@
-'use strict'
+import { AbortController } from 'abort-controller'
 
-const { AbortController } = require('abort-controller')
-
-function getData(abortController) {
+function getData (abortController) {
   // We have to switch to using the Promise constructor here because
   // the promisified version of setTimeout does not yet expose a way
   // of canceling the timeout.

@@ -1,5 +1,5 @@
-const { EventEmitter, once } = require('events')
-const { promisify } = require('util')
+import { EventEmitter, once } from 'events'
+import { promisify } from 'util'
 
 const foo = new EventEmitter()
 const sleep = promisify(setTimeout)
@@ -15,17 +15,16 @@ const sleep = promisify(setTimeout)
 //     process.nextTick(() => foo.emit('error', err))
 //   }
 // })
-// 
+//
 // foo.on('error', (err) => {
 //   throw new Error('boom')
 // })
-// 
+//
 // process.on('uncaughtException', (err) => {
 //   console.log(err.message)
 // })
-// 
+//
 // foo.emit('something')
-
 
 async function run () {
   await once(foo, 'something')

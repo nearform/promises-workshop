@@ -1,6 +1,4 @@
-'use strict'
-
-const fs = require('fs')
+import fs from 'fs'
 
 async function countStream (file) {
   let n = 0

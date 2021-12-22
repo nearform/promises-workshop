@@ -1,4 +1,4 @@
-const Bluebird = require('bluebird')
+import Bluebird from 'bluebird'
 
 Bluebird.resolve('hello from bluebird').then(console.log)
 Promise.resolve('native promise').then(console.log)

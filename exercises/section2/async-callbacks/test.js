@@ -1,12 +1,12 @@
 const autocannon = require('autocannon')
-const got = require('got')
-const {resolve} = require('path')
+const { fetch } = require('undici')
+const { resolve } = require('path')
 const t = require('tap')
 
 require(resolve(process.cwd(), process.argv[2]))
 
 t.teardown(() => {
-  return got('http://localhost:3000', {method: 'DELETE', retry: 0})
+  return fetch('http://localhost:3000', { method: 'DELETE' })
 })
 
 t.test('It should get 200 or 500 as response code, with no timeouts', async t => {
@@ -16,7 +16,7 @@ t.test('It should get 200 or 500 as response code, with no timeouts', async t =>
     url: 'http://localhost:3000',
     connections: 10,
     duration: 5,
-    timeout: 1,
+    timeout: 1
   })
 
   t.ok(result['2xx'] > 0, 'Received 200 responses')

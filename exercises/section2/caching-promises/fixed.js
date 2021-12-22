@@ -1,5 +1,6 @@
-const { strictEqual } = require('assert')
-const { promisify } = require('util')
+import { strictEqual } from 'assert'
+import { promisify } from 'util'
+
 const sleep = promisify(setTimeout)
 
 const cache = new Map()

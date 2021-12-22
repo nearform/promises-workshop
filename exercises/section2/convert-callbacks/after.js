@@ -1,34 +1,30 @@
-'use strict';
-
-const { createServer, get } = require('http')
-const { opendir } = require('fs').promises
-const { createReadStream } = require('fs')
-const { resolve } = require('path')
-const { pipeline: _pipeline } = require('stream')
-const { createHash } = require('crypto')
-const { promisify } = require('util')
+import { createServer, get } from 'http'
+import { opendir } from 'fs/promises'
+import { createReadStream } from 'fs'
+import { resolve } from 'path'
+import { pipeline as _pipeline } from 'stream'
+import { createHash } from 'crypto'
+import { promisify } from 'util'
 
 const pipeline = promisify(_pipeline)
 
-async function hashFile(path) {
+async function hashFile (path) {
   const hash = createHash('sha256')
   await pipeline(createReadStream(path), hash)
   return hash.digest().toString('hex').substr(0, 10)
 }
 
-async function scanDir(path, out, depth) {
+async function scanDir (path, out, depth) {
   const dir = await opendir(path)
   for await (const ent of dir) {
-    if (ent.name.startsWith('.'))
-      continue
+    if (ent.name.startsWith('.')) { continue }
     const entityPath = resolve(dir.path, ent.name)
     const icon = ent.isDirectory() ? '+' : '-'
     const hash = ent.isFile()
       ? ` (${await hashFile(entityPath)})`
       : ''
     out.write(`${' '.repeat(depth)}${icon} ${ent.name}${hash}`)
-    if (ent.isDirectory())
-      await scanDir(entityPath, out, depth + 2)
+    if (ent.isDirectory()) { await scanDir(entityPath, out, depth + 2) }
   }
 }
 

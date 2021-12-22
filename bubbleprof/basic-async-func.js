@@ -1,10 +1,9 @@
-'use strict'
-
 // run with:
 // clinic bubble --autocannon [ -a 1000 / ] -- node basic.js
 
-const http = require('http')
-const { promisify } = require('util')
+import http from 'http'
+import { promisify } from 'util'
+
 const sleep = promisify(setTimeout)
 
 async function something (req, res) {

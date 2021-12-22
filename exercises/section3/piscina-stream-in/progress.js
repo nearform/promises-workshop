@@ -1,40 +1,39 @@
-'use strict';
-const { EventEmitter } = require('events');
+import { EventEmitter } from 'events'
 
 class Progress extends EventEmitter {
-  #tasksSubmitted = 0;
-  #tasksCompleted = 0;
-  #tasksFailed = 0;
-  #done = false;
+  #tasksSubmitted = 0
+  #tasksCompleted = 0
+  #tasksFailed = 0
+  #done = false
 
   done () {
-    this.#done = true;
+    this.#done = true
   }
 
   incSubmitted () {
-    this.#tasksSubmitted++;
+    this.#tasksSubmitted++
   }
 
   incCompleted () {
-    this.#tasksCompleted++;
+    this.#tasksCompleted++
     if (this.#done && this.completed === this.#tasksSubmitted) {
-      process.nextTick(() => this.emit('finished'));
+      process.nextTick(() => this.emit('finished'))
     }
   }
 
   incFailed () {
-    this.#tasksFailed++;
+    this.#tasksFailed++
   }
 
   get completed () {
-    return this.#tasksCompleted + this.#tasksFailed;
+    return this.#tasksCompleted + this.#tasksFailed
   }
 
   get message () {
     return `${this.#tasksCompleted} of ${this.#tasksSubmitted} completed` +
       ` ${((this.#tasksCompleted / this.#tasksSubmitted) * 100).toFixed(2)}%` +
-      ` [${this.#tasksFailed} failed]`;
+      ` [${this.#tasksFailed} failed]`
   }
 }
 
-module.exports = Progress;
+export default Progress

@@ -1,4 +1,4 @@
-const EventEmitter = require('events')
+import EventEmitter from 'events'
 const { promisify } = require('util')
 
 const foo = new EventEmitter()

@@ -1,14 +1,11 @@
-'use strict';
-
-const { createServer } = require('http')
-const { pipeline: _pipeline } = require('stream')
-const { on } = require('events')
-const { promisify } = require('util')
-const { createHash } = require('crypto')
-const { createReadStream } = require('fs')
+import { createServer } from 'http'
+import { pipeline as _pipeline } from 'stream'
+import { on } from 'events'
+import { promisify } from 'util'
+import { createHash } from 'crypto'
+import { createReadStream } from 'fs'
 
 const pipeline = promisify(_pipeline)
-
 const sleep = promisify(setTimeout)
 
 ;(async () => {
@@ -20,6 +17,6 @@ const sleep = promisify(setTimeout)
     const hash = createHash('sha256')
     pipeline(file, hash)
       .then(() => sleep(1000))
-      .then(() => response.end(hash.digest().toString('hex').substr(0,10)))
+      .then(() => response.end(hash.digest().toString('hex').substr(0, 10)))
   }
 })()
