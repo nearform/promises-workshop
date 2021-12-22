@@ -53,6 +53,7 @@
   },
   "key": 123,
   "dependencies": {
-    "@babel/eslint-parser": "^7.16.5"
+    "@babel/eslint-parser": "^7.16.5",
+    "desm": "^1.2.0"
   }
 }

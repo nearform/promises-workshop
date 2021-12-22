@@ -1,11 +1,12 @@
 import http from 'http'
+import { fileURLToPath } from 'url'
 import { readFile } from 'fs/promises'
 
 async function handle (req, res) {
   res.end(Buffer.concat(await Promise.all([
-    readFile(__filename),
-    readFile(__filename),
-    readFile(__filename)
+    readFile(fileURLToPath(import.meta.url)),
+    readFile(fileURLToPath(import.meta.url)),
+    readFile(fileURLToPath(import.meta.url))
   ])))
 }
 

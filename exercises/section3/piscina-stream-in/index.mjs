@@ -4,7 +4,8 @@
 // example: node index.js 100
 // example: node index.js 500
 
-import { resolve } from 'path'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
 import csv from 'csvtojson'
 import Pool from 'piscina'
 import { performance, PerformanceObserver } from 'perf_hooks'
@@ -18,7 +19,7 @@ p.observe({ entryTypes: ['measure'] })
 const maxQueue = Math.max(parseInt(process.argv[2] || 100), 50)
 
 const pool = new Pool({
-  filename: resolve(__dirname, 'worker.js'),
+  filename: resolve(dirname(fileURLToPath(import.meta.url)), 'worker.js'),
   maxQueue
 })
 

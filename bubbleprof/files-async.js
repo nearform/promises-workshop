@@ -1,5 +1,8 @@
 import http from 'http'
 import { readFile } from 'fs/promises'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
 
 async function handle (req, res) {
   const a = await readFile(__filename)
