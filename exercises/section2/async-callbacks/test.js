@@ -1,9 +1,9 @@
-const autocannon = require('autocannon')
-const { fetch } = require('undici')
-const { resolve } = require('path')
-const t = require('tap')
+import autocannon from 'autocannon'
+import { fetch } from 'undici'
+import { resolve } from 'path'
+import t from 'tap'
 
-require(resolve(process.cwd(), process.argv[2]))
+await import(resolve(process.cwd(), process.argv[2]))
 
 t.teardown(() => {
   return fetch('http://localhost:3000', { method: 'DELETE' })

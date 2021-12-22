@@ -8,7 +8,7 @@ import { resolve } from 'path'
 import csv from 'csvtojson'
 import Pool from 'piscina'
 import { performance, PerformanceObserver } from 'perf_hooks'
-import Progress from './progress.js'
+import Progress from './progress.mjs'
 
 const p = new PerformanceObserver((entries) => {
   console.log(entries.getEntries()[0].duration)
@@ -56,7 +56,7 @@ stream
   })
   .on('error', (err) => {
     console.log(err.message)
-    console.log('run: `node generate` to generate the sample data')
+    console.log('run: `node generate.mjs` to generate the sample data')
   })
   .on('end', () => {
     // We are done submitting tasks

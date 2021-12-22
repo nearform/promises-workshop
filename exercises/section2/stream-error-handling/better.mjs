@@ -17,9 +17,9 @@ async function run (file) {
   }
 }
 
-module.exports = run
+export default run
 
-if (require.main === module) {
+if (!process.argv.includes('test')) {
   const file = process.argv[2] || __filename
   run(file)
 }

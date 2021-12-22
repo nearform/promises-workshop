@@ -1,6 +1,4 @@
-'use strict'
-
-const { createWriteStream } = require('fs')
+import { createWriteStream } from 'fs'
 
 const out = createWriteStream('./data.csv')
 

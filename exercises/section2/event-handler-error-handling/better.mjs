@@ -1,5 +1,5 @@
 import EventEmitter from 'events'
-const { promisify } = require('util')
+import { promisify } from 'util'
 
 const foo = new EventEmitter()
 const sleep = promisify(setTimeout)

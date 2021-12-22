@@ -1,6 +1,6 @@
-const { spawnSync } = require('child_process')
-const { resolve } = require('path')
-const t = require('tap')
+import { spawnSync } from 'child_process'
+import { resolve } from 'path'
+import t from 'tap'
 
 const first = resolve(process.cwd(), 'before.js')
 const second = resolve(process.cwd(), process.argv[2])
