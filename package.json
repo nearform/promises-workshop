@@ -31,7 +31,7 @@
   },
   "scripts": {
     "test": "tap --no-coverage",
-    "lint": "eslint ."
+    "lint": "eslint . --ext .mjs"
   },
   "devDependencies": {
     "abort-controller": "^3.0.0",
