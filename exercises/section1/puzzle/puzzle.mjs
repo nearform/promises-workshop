@@ -39,6 +39,7 @@ if (isMainThread) {
       throw new Error('D')
     } finally {
       process.stdout.write(' ')
+      // eslint-disable-next-line no-unsafe-finally
       throw new Error('N')
     }
   })
