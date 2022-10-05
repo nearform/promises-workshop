@@ -1,25 +1,28 @@
 name: ci
-on: 
+on:
   push:
     branches:
       - master
-  pull_request:
+  pull_request: 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12, 14, 16]
+        node-version:
+          - 12
+          - 14
+          - 16
+          - 18
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: npm
       - run: npm ci
       - run: npm run lint
       - run: npm run test
-
   automerge:
     needs: build
     runs-on: ubuntu-latest
