@@ -40,7 +40,7 @@
     "abort-controller": "^3.0.0",
     "autocannon": "^7.10.0",
     "csvtojson": "^2.0.10",
-    "eslint": "^8.24.0",
+    "eslint": "^8.25.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
