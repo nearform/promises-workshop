@@ -34,7 +34,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
+    "@babel/core": "^7.22.1",
     "@babel/eslint-parser": "^7.21.8",
     "@babel/preset-env": "^7.22.1",
     "abort-controller": "^3.0.0",
