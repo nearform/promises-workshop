@@ -47,7 +47,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-standard": "^5.0.0",
     "got": "^14.0.0",
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.0.2",
     "notare": "^2.2.0",
     "p-map": "^6.0.0",
     "piscina": "^4.1.0",
