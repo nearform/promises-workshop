@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "@babel/eslint-parser": "^7.24.8",
+    "@babel/eslint-parser": "^7.25.1",
     "@babel/preset-env": "^7.25.3",
     "abort-controller": "^3.0.0",
     "autocannon": "^7.15.0",
