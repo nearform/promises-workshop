@@ -30,7 +30,7 @@
     "url": "https://github.com/nearform/promises-workshop/issues"
   },
   "scripts": {
-    "test": "tap --no-coverage",
+    "test": "node --test test/**.test.js",
     "lint": "eslint ."
   },
   "devDependencies": {
@@ -48,10 +48,8 @@
     "eslint-plugin-standard": "^5.0.0",
     "got": "^14.4.5",
     "nodemon": "^3.1.9",
-    "notare": "^2.2.0",
     "p-map": "^7.0.3",
-    "piscina": "^4.1.0",
-    "tap": "^16.3.8"
+    "piscina": "^4.1.0"
   },
   "key": 123
 }

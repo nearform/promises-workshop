@@ -3,17 +3,16 @@ on:
   push:
     branches:
       - master
-  pull_request: 
+  pull_request:
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version:
-          - 12
-          - 14
-          - 16
-          - 18
+          - 20
+          - 22
+          - 24
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
