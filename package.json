@@ -30,11 +30,11 @@
     "url": "https://github.com/nearform/promises-workshop/issues"
   },
   "scripts": {
-    "test": "tap --no-coverage",
+    "test": "node --test test/**.test.js",
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
+    "@babel/core": "^7.26.10",
     "@babel/eslint-parser": "^7.26.5",
     "@babel/preset-env": "^7.26.0",
     "abort-controller": "^3.0.0",
@@ -48,10 +48,8 @@
     "eslint-plugin-standard": "^5.0.0",
     "got": "^14.4.5",
     "nodemon": "^3.1.9",
-    "notare": "^2.2.0",
     "p-map": "^7.0.3",
-    "piscina": "^4.9.2",
-    "tap": "^16.3.8"
+    "piscina": "^4.9.2"
   },
   "key": 123
 }
