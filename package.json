@@ -48,7 +48,7 @@
     "eslint-plugin-standard": "^5.0.0",
     "got": "^14.6.3",
     "nodemon": "^3.1.10",
-    "p-map": "^7.0.3",
+    "p-map": "^7.0.4",
     "piscina": "^4.9.2"
   },
   "key": 123
