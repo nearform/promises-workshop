@@ -34,21 +34,21 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@babel/core": "^7.26.10",
-    "@babel/eslint-parser": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
+    "@babel/core": "^7.29.7",
+    "@babel/eslint-parser": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
     "abort-controller": "^3.0.0",
     "autocannon": "^8.0.0",
-    "csvtojson": "^2.0.10",
+    "csvtojson": "^2.0.14",
     "eslint": "^8.57.1",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.6.0",
     "eslint-plugin-standard": "^5.0.0",
-    "got": "^14.6.3",
-    "nodemon": "^3.1.11",
-    "p-map": "^7.0.4",
+    "got": "^14.6.6",
+    "nodemon": "^3.1.14",
+    "p-map": "^7.0.5",
     "piscina": "^4.9.3"
   },
   "key": 123
