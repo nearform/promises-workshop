@@ -68,6 +68,6 @@ stream
   });
 
 process.on('exit', () => {
-  console.log('Mean Wait Time:', pool.waitTime.mean, 'ms');
-  console.log('Mean Run Time:', pool.runTime.mean, 'ms');
+  console.log('Mean Wait Time:', pool.histogram.waitTime.mean, 'ms');
+  console.log('Mean Run Time:', pool.histogram.runTime.mean, 'ms');
 });
