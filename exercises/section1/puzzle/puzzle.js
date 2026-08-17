@@ -1,4 +1,4 @@
-/* eslint-disable no-inner-declarations, no-unsafe-finally */
+/* eslint-disable no-unsafe-finally */
 
 'use strict';
 // The challenge: This code prints a message to the console. Without
