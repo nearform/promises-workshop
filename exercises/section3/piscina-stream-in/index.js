@@ -26,12 +26,17 @@ const pool = new Pool({
 
 const stream = csv().fromFile('./data.csv');
 
-pool.on('drain', () => {
-  if (stream.isPaused()) {
+// piscina 5 redefined 'drain': it is now emitted when the pool drops below
+// maxCapacity (maxThreads * concurrentTasksPerWorker) and only after a preceding
+// 'needsDrain', not when the task queue empties as it did in piscina 4. Relying on
+// it here deadlocked the stream — it paused once and was never resumed — so the
+// queue-empty condition this exercise actually wants is checked directly.
+function resumeIfDrained() {
+  if (stream.isPaused() && pool.queueSize === 0) {
     console.log('resuming...', pool.queueSize);
     stream.resume();
   }
-});
+}
 
 const progress = new Progress();
 progress.on('finished', () => {
@@ -43,15 +48,18 @@ stream
   .on('data', (data) => {
     const line = data.toString('utf8');
     progress.incSubmitted();
-    pool.runTask(line)
+    pool.run(line)
       .then(() => {
         progress.incCompleted();
+        resumeIfDrained();
       })
       .catch((err) => {
         progress.incFailed();
         stream.destroy(err);
       });
-    if (pool.queueSize === maxQueue) {
+    // `>=`, not `===`: the queue can jump past maxQueue inside a single
+    // synchronous burst of 'data' events and the exact value would be missed.
+    if (pool.queueSize >= maxQueue) {
       console.log('pausing...', pool.queueSize, pool.utilization);
       stream.pause();
     }
@@ -68,6 +76,6 @@ stream
   });
 
 process.on('exit', () => {
-  console.log('Mean Wait Time:', pool.waitTime.mean, 'ms');
-  console.log('Mean Run Time:', pool.runTime.mean, 'ms');
+  console.log('Mean Wait Time:', pool.histogram.waitTime.mean, 'ms');
+  console.log('Mean Run Time:', pool.histogram.runTime.mean, 'ms');
 });
