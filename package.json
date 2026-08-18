@@ -37,7 +37,7 @@
     "@babel/core": "^8.0.1",
     "@babel/eslint-parser": "^8.0.1",
     "@babel/preset-env": "^8.0.2",
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^10.0.1",
     "abort-controller": "^3.0.0",
     "autocannon": "^8.0.0",
     "csvtojson": "^2.0.14",
