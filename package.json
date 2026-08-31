@@ -48,7 +48,7 @@
     "got": "^15.1.0",
     "nodemon": "^3.1.14",
     "p-map": "^7.0.7",
-    "piscina": "^5.3.1"
+    "piscina": "^5.3.2"
   },
   "key": 123,
   "dependencies": {
