@@ -34,7 +34,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@babel/core": "^8.0.5",
+    "@babel/core": "^8.0.6",
     "@babel/eslint-parser": "^8.0.6",
     "@babel/preset-env": "^8.0.6",
     "@eslint/js": "^10.0.1",
