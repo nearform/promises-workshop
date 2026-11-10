@@ -39,7 +39,7 @@
     "@babel/preset-env": "^8.0.7",
     "@eslint/js": "^10.0.1",
     "abort-controller": "^3.0.0",
-    "autocannon": "^8.0.0",
+    "autocannon": "^9.0.0",
     "bluebird": "^3.7.2",
     "csvtojson": "^2.0.14",
     "eslint": "^10.14.0",
